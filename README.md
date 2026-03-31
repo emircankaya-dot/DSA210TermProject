@@ -1,55 +1,65 @@
-# Underdog Detection in Football  
-## Predicting Upsets Using FIFA Rankings in World Cup History
+# Underdog Detection in Football: Predicting Upsets Using FIFA Rankings
 
 ## Project Overview
-Football matches are often predicted using indicators such as team strength and global rankings. However, international tournaments frequently produce surprising outcomes where lower-ranked teams defeat stronger opponents.
+This project investigates whether underdog victories (upsets) in international football can be predicted using FIFA rankings and match-related statistics. The analysis focuses on historical FIFA World Cup data across multiple tournaments to understand the conditions under which lower-ranked teams defeat stronger opponents.
 
-This project investigates whether these upsets can be predicted using FIFA rankings and historical match data from FIFA World Cup tournaments.
+## Motivation
+Football is widely considered unpredictable, especially in major tournaments such as the FIFA World Cup. While FIFA rankings provide an estimate of team strength, they do not always explain surprising match outcomes. This project aims to evaluate the predictive power of FIFA rankings and identify key factors contributing to upset results.
 
----
-
-## Objectives
-- Analyze the relationship between FIFA ranking differences and match outcomes  
-- Identify patterns behind underdog victories (upsets)  
-- Build a machine learning model to predict the probability of an upset  
-- Evaluate the predictive power of FIFA rankings  
-
----
+## Research Question
+Can underdog victories in FIFA World Cup matches be predicted using FIFA rankings and historical performance data?
 
 ## Dataset
+The project uses publicly available datasets that include:
 
-### Sources
-- World Cup match datasets (Kaggle)  
-- Historical FIFA rankings (public sources)  
+- FIFA World Cup match data (multiple tournaments)
+  - Team names
+  - Match outcomes
+  - Goals scored
+  - Tournament stage
 
-### Coverage
-- FIFA World Cups: 1998 – 2018  
-- Several hundred international matches  
+- FIFA ranking data
+  - Team rankings over time
+  - Rankings matched to each game based on the closest date prior to the match
 
-### Features
-- Team names  
-- Match results  
-- Goals scored  
-- Tournament stage  
+## Data Processing
+The datasets are merged using team names and match dates. FIFA rankings are aligned with each match by selecting the closest available ranking prior to the game.
 
-### Engineered Features
-- FIFA ranking (both teams)  
-- Ranking difference  
-- Historical performance metrics  
-- Upset Outcome (Target Variable)  
-  - 1 → Lower-ranked team wins  
-  - 0 → Otherwise  
+New features are created, including:
+- Ranking difference between teams
+- Goal difference statistics
+- Historical performance indicators
 
----
+A binary target variable is defined:
+- Upset = 1 if the lower-ranked team wins
+- Upset = 0 otherwise
 
 ## Methodology
+The project follows a standard data science pipeline:
 
-### 1. Exploratory Data Analysis (EDA)
-- Distribution of ranking differences  
-- Frequency of upsets  
-- Upsets by tournament stage  
-- Goal patterns and trends  
+1. Data Collection and Cleaning
+2. Feature Engineering
+3. Exploratory Data Analysis (EDA)
+4. Model Development
 
+Machine learning models used:
+- Logistic Regression
+- Decision Tree Classifier
+
+## Evaluation Metrics
+Model performance is evaluated using:
+- Accuracy
+- Precision
+- Recall
+- F1-score
+
+## Expected Outcomes
+The project aims to determine:
+- Whether FIFA rankings are a strong predictor of match outcomes
+- How frequently upsets occur
+- Which factors increase the likelihood of underdog victories
+
+## Project Structure
 ### 2. Feature Engineering
 - Ranking gap calculation  
 - Performance-based indicators  
@@ -94,3 +104,36 @@ Predict the probability that a match result will be an upset, based on pre-match
 ---
 
 ## Project Structure
+project/
+│
+├── data/
+├── notebooks/
+├── src/
+├── results/
+├── README.md
+└── requirements.txt
+
+## Requirements
+All code is written in Python. Required libraries include:
+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+
+Install dependencies using:
+
+pip install -r requirements.txt
+
+## Reproducibility
+To reproduce the analysis:
+1. Download the datasets
+2. Place them in the data/ directory
+3. Run the notebooks or scripts in order
+
+## Ethical Considerations
+All datasets used in this project are publicly available. No personal or sensitive data is involved.
+
+## Author
+Ahmet Emir Çankaya
