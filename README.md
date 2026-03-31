@@ -1,16 +1,14 @@
-# DSA210TermProject
+# Underdog Detection in Football  
+## Predicting Upsets Using FIFA Rankings in World Cup History
 
-# ⚽ Underdog Detection in Football  
-### Predicting Upsets Using FIFA Rankings in World Cup History
-
-## 📌 Project Overview
+## Project Overview
 Football matches are often predicted using indicators such as team strength and global rankings. However, international tournaments frequently produce surprising outcomes where lower-ranked teams defeat stronger opponents.
 
-This project investigates whether these **upsets** can be predicted using **FIFA rankings** and historical match data from FIFA World Cup tournaments.
+This project investigates whether these upsets can be predicted using FIFA rankings and historical match data from FIFA World Cup tournaments.
 
 ---
 
-## 🎯 Objectives
+## Objectives
 - Analyze the relationship between FIFA ranking differences and match outcomes  
 - Identify patterns behind underdog victories (upsets)  
 - Build a machine learning model to predict the probability of an upset  
@@ -18,14 +16,14 @@ This project investigates whether these **upsets** can be predicted using **FIFA
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 ### Sources
 - World Cup match datasets (Kaggle)  
 - Historical FIFA rankings (public sources)  
 
 ### Coverage
-- FIFA World Cups: **1998 – 2018**  
+- FIFA World Cups: 1998 – 2018  
 - Several hundred international matches  
 
 ### Features
@@ -38,13 +36,13 @@ This project investigates whether these **upsets** can be predicted using **FIFA
 - FIFA ranking (both teams)  
 - Ranking difference  
 - Historical performance metrics  
-- **Upset Outcome (Target Variable)**  
+- Upset Outcome (Target Variable)  
   - 1 → Lower-ranked team wins  
   - 0 → Otherwise  
 
 ---
 
-## 🔍 Methodology
+## Methodology
 
 ### 1. Exploratory Data Analysis (EDA)
 - Distribution of ranking differences  
@@ -73,19 +71,19 @@ This project investigates whether these **upsets** can be predicted using **FIFA
 
 ---
 
-## 🤖 Model Goal
-Predict the probability that a match result will be an **upset**, based on pre-match information.
+## Model Goal
+Predict the probability that a match result will be an upset, based on pre-match information.
 
 ---
 
-## 📈 Expected Results
-- FIFA rankings will have **predictive value**, but not be sufficient alone  
+## Expected Results
+- FIFA rankings will have predictive value, but not be sufficient alone  
 - Upsets are influenced by multiple factors beyond rankings  
 - Football retains a level of unpredictability  
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 - Python  
 - Pandas  
 - NumPy  
@@ -95,4 +93,4 @@ Predict the probability that a match result will be an **upset**, based on pre-m
 
 ---
 
-## 📁 Project Structure
+## Project Structure
