@@ -103,15 +103,6 @@ Predict the probability that a match result will be an upset, based on pre-match
 
 ---
 
-## Project Structure
-project/
-│
-├── data/
-├── notebooks/
-├── src/
-├── results/
-├── README.md
-└── requirements.txt
 
 ## Requirements
 All code is written in Python. Required libraries include:
@@ -122,9 +113,7 @@ All code is written in Python. Required libraries include:
 - seaborn
 - scikit-learn
 
-Install dependencies using:
 
-pip install -r requirements.txt
 
 ## Reproducibility
 To reproduce the analysis:
@@ -132,8 +121,6 @@ To reproduce the analysis:
 2. Place them in the data/ directory
 3. Run the notebooks or scripts in order
 
-## Ethical Considerations
-All datasets used in this project are publicly available. No personal or sensitive data is involved.
 
 ## Author
 Ahmet Emir Çankaya
