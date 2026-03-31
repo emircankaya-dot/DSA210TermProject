@@ -120,7 +120,3 @@ To reproduce the analysis:
 1. Download the datasets
 2. Place them in the data/ directory
 3. Run the notebooks or scripts in order
-
-
-## Author
-Ahmet Emir Çankaya
