@@ -1,0 +1,7 @@
+Year,match_date,Stage,Home Team Name,Away Team Name,Home Team Goals,Away Team Goals,home_rank,away_rank,ranking_diff,abs_ranking_gap,goal_diff,result,underdog_win
+2014,2014-06-12 17:00:00,Group Stage,Brazil,Croatia,3,1,3,18,15,15,2,Home Win,0
+2014,2014-06-13 17:00:00,Group Stage,Spain,Netherlands,1,5,1,15,14,14,4,Away Win,1
+2014,2014-06-14 17:00:00,Group Stage,Germany,Portugal,4,0,2,4,2,2,4,Home Win,0
+2018,2018-06-14 18:00:00,Group Stage,Russia,Saudi Arabia,5,0,70,67,-3,3,5,Home Win,1
+2018,2018-06-15 18:00:00,Group Stage,Spain,Portugal,3,3,10,4,-6,6,0,Draw,0
+2018,2018-06-16 18:00:00,Group Stage,France,Australia,2,1,7,36,29,29,1,Home Win,0

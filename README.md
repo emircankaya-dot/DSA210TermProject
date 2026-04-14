@@ -1,122 +1,59 @@
-# Underdog Detection in Football: Predicting Upsets Using FIFA Rankings
 
-## Project Overview
-This project investigates whether underdog victories (upsets) in international football can be predicted using FIFA rankings and match-related statistics. The analysis focuses on historical FIFA World Cup data across multiple tournaments to understand the conditions under which lower-ranked teams defeat stronger opponents.
+This project investigates whether underdog victories in FIFA World Cup matches can be explained using FIFA rankings and match-level statistics. The analysis focuses on World Cup tournaments from 1994 to 2022, where historical FIFA rankings are available.
 
-## Motivation
-Football is widely considered unpredictable, especially in major tournaments such as the FIFA World Cup. While FIFA rankings provide an estimate of team strength, they do not always explain surprising match outcomes. This project aims to evaluate the predictive power of FIFA rankings and identify key factors contributing to upset results.
+Can underdog victories in FIFA World Cup matches be explained or predicted using FIFA rankings?
 
-## Research Question
-Can underdog victories in FIFA World Cup matches be predicted using FIFA rankings and historical performance data?
+The project uses two datasets:
 
-## Dataset
-The project uses publicly available datasets that include:
+- **WorldCupMatches.csv**
+  - Match-level data including teams, goals, and tournament stages
 
-- FIFA World Cup match data (multiple tournaments)
-  - Team names
-  - Match outcomes
-  - Goals scored
-  - Tournament stage
+- **fifa_ranking.csv**
+  - Historical FIFA rankings
+  - Rankings are matched to each match based on the closest date before the game
 
-- FIFA ranking data
-  - Team rankings over time
-  - Rankings matched to each game based on the closest date prior to the match
+The script `data_collection.py`:
+- Cleans and processes match data
+- Matches each team with its FIFA ranking before the match
+- Creates the final dataset: `world_cup_matches_ranked.csv`
 
-## Data Processing
-The datasets are merged using team names and match dates. FIFA rankings are aligned with each match by selecting the closest available ranking prior to the game.
+The final dataset includes:
 
-New features are created, including:
-- Ranking difference between teams
-- Goal difference statistics
-- Historical performance indicators
+- `home_rank`
+- `away_rank`
+- `ranking_diff`
+- `abs_ranking_gap`
+- `goal_diff`
+- `result`
+- `underdog_win`
 
-A binary target variable is defined:
-- Upset = 1 if the lower-ranked team wins
-- Upset = 0 otherwise
+An **underdog win** is defined as a match where the lower-ranked team defeats the higher-ranked team.
 
-## Methodology
-The project follows a standard data science pipeline:
+EDA is performed in `eda.py` and includes:
 
-1. Data Collection and Cleaning
-2. Feature Engineering
-3. Exploratory Data Analysis (EDA)
-4. Model Development
+- Distribution of ranking gaps
+- Distribution of underdog wins
+- Boxplot comparing ranking gaps for upset vs non-upset matches
+- Underdog win rates across tournament stages
 
-Machine learning models used:
-- Logistic Regression
-- Decision Tree Classifier
+All visualizations are saved in the `results/` folder.
 
-## Evaluation Metrics
-Model performance is evaluated using:
-- Accuracy
-- Precision
-- Recall
-- F1-score
+Hypothesis testing is conducted in `hypothesis.py`.
 
-## Expected Outcomes
-The project aims to determine:
-- Whether FIFA rankings are a strong predictor of match outcomes
-- How frequently upsets occur
-- Which factors increase the likelihood of underdog victories
+- **H0:** There is no significant difference in ranking gaps between upset and non-upset matches  
+- **H1:** There is a significant difference  
 
-## Project Structure
-### 2. Feature Engineering
-- Ranking gap calculation  
-- Performance-based indicators  
-- Match context features  
+- Independent two-sample t-test  
+- Mann-Whitney U test  
+- Chi-square test  
 
-### 3. Modeling
-- Logistic Regression  
-- Decision Tree Classifier  
+These tests evaluate whether ranking differences influence the likelihood of underdog victories.
 
-### 4. Evaluation Metrics
-- Accuracy  
-- Precision  
-- Recall  
-- F1-Score  
+## How to Run
 
-### 5. Interpretation
-- Feature importance analysis  
-- Role of FIFA rankings vs other factors  
+Run the scripts in the following order:
 
----
-
-## Model Goal
-Predict the probability that a match result will be an upset, based on pre-match information.
-
----
-
-## Expected Results
-- FIFA rankings will have predictive value, but not be sufficient alone  
-- Upsets are influenced by multiple factors beyond rankings  
-- Football retains a level of unpredictability  
-
----
-
-## Technologies Used
-- Python  
-- Pandas  
-- NumPy  
-- Matplotlib  
-- Seaborn  
-- Scikit-learn  
-
----
-
-
-## Requirements
-All code is written in Python. Required libraries include:
-
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- scikit-learn
-
-
-
-## Reproducibility
-To reproduce the analysis:
-1. Download the datasets
-2. Place them in the data/ directory
-3. Run the notebooks or scripts in order
+```bash
+python data_collection.py
+python eda.py
+python hypothesis.py
